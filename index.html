@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CepteMotivasyon - Motivasyonunuz Cebinizde</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#4CAF50',secondary:'#2E7D32'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Inter', sans-serif;
+}
+.gradient-bg {
+background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+}
+.counter {
+transition: all 0.5s ease;
+}
+.custom-checkbox {
+appearance: none;
+width: 1.25rem;
+height: 1.25rem;
+border: 2px solid #4CAF50;
+border-radius: 4px;
+position: relative;
+cursor: pointer;
+}
+.custom-checkbox:checked {
+background-color: #4CAF50;
+}
+.custom-checkbox:checked::after {
+content: '';
+position: absolute;
+top: 0.25rem;
+left: 0.4rem;
+width: 0.4rem;
+height: 0.7rem;
+border: solid white;
+border-width: 0 2px 2px 0;
+transform: rotate(45deg);
+}
+.custom-switch {
+position: relative;
+display: inline-block;
+width: 3rem;
+height: 1.5rem;
+}
+.custom-switch input {
+opacity: 0;
+width: 0;
+height: 0;
+}
+.switch-slider {
+position: absolute;
+cursor: pointer;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color: #e5e7eb;
+transition: .4s;
+border-radius: 34px;
+}
+.switch-slider:before {
+position: absolute;
+content: "";
+height: 1.1rem;
+width: 1.1rem;
+left: 0.2rem;
+bottom: 0.2rem;
+background-color: white;
+transition: .4s;
+border-radius: 50%;
+}
+input:checked + .switch-slider {
+background-color: #4CAF50;
+}
+input:checked + .switch-slider:before {
+transform: translateX(1.5rem);
+}
+.timeline-connector {
+height: 2px;
+background: linear-gradient(90deg, #4CAF50 0%, #2E7D32 100%);
+position: absolute;
+top: 2.5rem;
+left: 3rem;
+right: 3rem;
+z-index: 0;
+}
+.timeline-step {
+z-index: 1;
+position: relative;
+}
+.custom-range {
+-webkit-appearance: none;
+width: 100%;
+height: 8px;
+border-radius: 5px;
+background: #e5e7eb;
+outline: none;
+}
+.custom-range::-webkit-slider-thumb {
+-webkit-appearance: none;
+appearance: none;
+width: 20px;
+height: 20px;
+border-radius: 50%;
+background: #4CAF50;
+cursor: pointer;
+}
+.custom-range::-moz-range-thumb {
+width: 20px;
+height: 20px;
+border-radius: 50%;
+background: #4CAF50;
+cursor: pointer;
+}
+</style>
+</head>
+<body class="bg-white">
+<!-- Header -->
+<header class="fixed top-0 left-0 right-0 bg-white z-50 shadow-sm">
+<div class="container mx-auto px-4 py-3 flex justify-between items-center">
+<div class="flex items-center">
+<span class="text-primary font-['Pacifico'] text-2xl">CepteMotivasyon</span>
+</div>
+<nav class="hidden md:flex space-x-8">
+<a href="#features" class="text-gray-700 hover:text-primary font-medium">Özellikler</a>
+<a href="#how-it-works" class="text-gray-700 hover:text-primary font-medium">Nasıl Çalışır</a>
+<a href="#stats" class="text-gray-700 hover:text-primary font-medium">İstatistikler</a>
+<a href="#faq" class="text-gray-700 hover:text-primary font-medium">SSS</a>
+</nav>
+<div class="flex items-center space-x-4">
+<button class="bg-primary text-white px-6 py-2 !rounded-button font-medium shadow-md hover:bg-opacity-90 transition whitespace-nowrap">Ücretsiz İndir</button>
+<button class="md:hidden flex items-center justify-center w-10 h-10">
+<i class="ri-menu-line text-gray-700 ri-lg"></i>
+</button>
+</div>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="relative pt-24 overflow-hidden" style="background-image: url('https://public.readdy.ai/gen_page/map_placeholder_1280x720.png'); background-size: cover; background-position: center;">
+<div class="absolute inset-0 bg-gradient-to-r from-primary/90 to-transparent"></div>
+<div class="container mx-auto px-4 py-20 md:py-32 relative z-10">
+<div class="flex flex-col md:flex-row items-center">
+<div class="w-full md:w-1/2 text-white mb-12 md:mb-0">
+<h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">Motivasyonunuz Cebinizde</h1>
+<p class="text-xl md:text-2xl mb-8 opacity-90">Günlük görevlerinizi takip edin, başarı rozetleri kazanın, motivasyonunuzu artırın</p>
+<div class="flex flex-wrap gap-4">
+<button class="flex items-center bg-white text-gray-800 px-6 py-3 !rounded-button font-medium shadow-lg hover:bg-opacity-90 transition whitespace-nowrap">
+<div class="flex items-center justify-center w-6 h-6 mr-2">
+<i class="ri-apple-fill ri-lg"></i>
+</div>
+App Store
+</button>
+<button class="flex items-center bg-white text-gray-800 px-6 py-3 !rounded-button font-medium shadow-lg hover:bg-opacity-90 transition whitespace-nowrap">
+<div class="flex items-center justify-center w-6 h-6 mr-2">
+<i class="ri-google-play-fill ri-lg"></i>
+</div>
+Google Play
+</button>
+</div>
+</div>
+<div class="w-full md:w-1/2 flex justify-center">
+<!-- Phone mockup is part of the background image -->
+</div>
+</div>
+</div>
+<div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 animate-bounce">
+<div class="flex items-center justify-center w-10 h-10 text-white">
+<i class="ri-arrow-down-line ri-lg"></i>
+</div>
+</div>
+</section>
+<!-- Features Section -->
+<section id="features" class="py-20 bg-gray-50">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold mb-4">Özellikler</h2>
+<p class="text-lg text-gray-600 max-w-3xl mx-auto">CepteMotivasyon uygulaması ile motivasyonunuzu her zaman yanınızda taşıyın ve hedeflerinize daha kolay ulaşın.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Feature 1 -->
+<div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+<div class="flex items-center justify-center w-16 h-16 bg-primary/10 text-primary rounded-full mb-6 mx-auto">
+<i class="ri-task-line ri-2x"></i>
+</div>
+<h3 class="text-xl font-bold mb-4 text-center">Görev Takibi</h3>
+<ul class="space-y-3 text-gray-700">
+<li class="flex items-start">
+<div class="flex items-center justify-center w-5 h-5 mt-0.5 mr-2 text-primary">
+<i class="ri-check-line"></i>
+</div>
+<span>Günlük görevler oluşturma ve takip</span>
+</li>
+<li class="flex items-start">
+<div class="flex items-center justify-center w-5 h-5 mt-0.5 mr-2 text-primary">
+<i class="ri-check-line"></i>
+</div>
+<span>Streak sistemi ile süreklilik</span>
+</li>
+<li class="flex items-start">
+<div class="flex items-center justify-center w-5 h-5 mt-0.5 mr-2 text-primary">
+<i class="ri-check-line"></i>
+</div>
+<span>Görev tamamlama istatistikleri</span>
+</li>
+<li class="flex items-start">
+<div class="flex items-center justify-center w-5 h-5 mt-0.5 mr-2 text-primary">
+<i class="ri-check-line"></i>
+</div>
+<span>Özelleştirilebilir görev kategorileri</span>
+</li>
+</ul>
+</div>
+<!-- Feature 2 -->
+<div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+<div class="flex items-center justify-center w-16 h-16 bg-primary/10 text-primary rounded-full mb-6 mx-auto">
+<i class="ri-emotion-happy-line ri-2x"></i>
+</div>
+<h3 class="text-xl font-bold mb-4 text-center">Motivasyon Sistemi</h3>
+<ul class="space-y-3 text-gray-700">
+<li class="flex items-start">
+<div class="flex items-center justify-center w-5 h-5 mt-0.5 mr-2 text-primary">
+<i class="ri-check-line"></i>
+</div>
+<span>Başarı rozetleri</span>
+</li>
+<li class="flex items-start">
+<div class="flex items-center justify-center w-5 h-5 mt-0.5 mr-2 text-primary">
+<i class="ri-check-line"></i>
+</div>
+<span>Günlük motivasyon bildirimleri (09:00 ve 16:00)</span>
+</li>
+<li class="flex items-start">
+<div class="flex items-center justify-center w-5 h-5 mt-0.5 mr-2 text-primary">
+<i class="ri-check-line"></i>
+</div>
+<span>Eğitim içerikleri ve videolar</span>
+</li>
+<li class="flex items-start">
+<div class="flex items-center justify-center w-5 h-5 mt-0.5 mr-2 text-primary">
+<i class="ri-check-line"></i>
+</div>
+<span>İlerleme grafikleri</span>
+</li>
+</ul>
+</div>
+<!-- Feature 3 -->
+<div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+<div class="flex items-center justify-center w-16 h-16 bg-primary/10 text-primary rounded-full mb-6 mx-auto">
+<i class="ri-gift-line ri-2x"></i>
+</div>
+<h3 class="text-xl font-bold mb-4 text-center">Ödül Sistemi</h3>
+<ul class="space-y-3 text-gray-700">
+<li class="flex items-start">
+<div class="flex items-center justify-center w-5 h-5 mt-0.5 mr-2 text-primary">
+<i class="ri-check-line"></i>
+</div>
+<span>Market puanları kazanma</span>
+</li>
+<li class="flex items-start">
+<div class="flex items-center justify-center w-5 h-5 mt-0.5 mr-2 text-primary">
+<i class="ri-check-line"></i>
+</div>
+<span>Özel ürünler ve ödüller</span>
+</li>
+<li class="flex items-start">
+<div class="flex items-center justify-center w-5 h-5 mt-0.5 mr-2 text-primary">
+<i class="ri-check-line"></i>
+</div>
+<span>Başarı seviyesi sistemi</span>
+</li>
+<li class="flex items-start">
+<div class="flex items-center justify-center w-5 h-5 mt-0.5 mr-2 text-primary">
+<i class="ri-check-line"></i>
+</div>
+<span>Kişiselleştirilmiş hedefler</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- How It Works Section -->
+<section id="how-it-works" class="py-20">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold mb-4">Nasıl Çalışır</h2>
+<p class="text-lg text-gray-600 max-w-3xl mx-auto">CepteMotivasyon'u kullanmak çok kolay. Sadece birkaç adımda motivasyonunuzu artırın.</p>
+</div>
+<div class="relative hidden md:block">
+<div class="timeline-connector"></div>
+<div class="flex justify-between">
+<!-- Step 1 -->
+<div class="timeline-step text-center px-4">
+<div class="flex items-center justify-center w-12 h-12 bg-primary text-white rounded-full mb-4 mx-auto font-bold">1</div>
+<div class="flex items-center justify-center w-16 h-16 bg-white shadow-md rounded-full mb-4 mx-auto">
+<i class="ri-user-add-line ri-xl text-primary"></i>
+</div>
+<h3 class="text-lg font-bold mb-2">Üye Ol</h3>
+<p class="text-sm text-gray-600">Hızlı kayıt süreci ile hesabınızı oluşturun</p>
+</div>
+<!-- Step 2 -->
+<div class="timeline-step text-center px-4">
+<div class="flex items-center justify-center w-12 h-12 bg-primary text-white rounded-full mb-4 mx-auto font-bold">2</div>
+<div class="flex items-center justify-center w-16 h-16 bg-white shadow-md rounded-full mb-4 mx-auto">
+<i class="ri-list-check ri-xl text-primary"></i>
+</div>
+<h3 class="text-lg font-bold mb-2">Görevlerini Belirle</h3>
+<p class="text-sm text-gray-600">Kişisel hedeflerinize göre görevler oluşturun</p>
+</div>
+<!-- Step 3 -->
+<div class="timeline-step text-center px-4">
+<div class="flex items-center justify-center w-12 h-12 bg-primary text-white rounded-full mb-4 mx-auto font-bold">3</div>
+<div class="flex items-center justify-center w-16 h-16 bg-white shadow-md rounded-full mb-4 mx-auto">
+<i class="ri-calendar-check-line ri-xl text-primary"></i>
+</div>
+<h3 class="text-lg font-bold mb-2">Günlük Takip Et</h3>
+<p class="text-sm text-gray-600">Görevlerinizi düzenli olarak tamamlayın</p>
+</div>
+<!-- Step 4 -->
+<div class="timeline-step text-center px-4">
+<div class="flex items-center justify-center w-12 h-12 bg-primary text-white rounded-full mb-4 mx-auto font-bold">4</div>
+<div class="flex items-center justify-center w-16 h-16 bg-white shadow-md rounded-full mb-4 mx-auto">
+<i class="ri-medal-line ri-xl text-primary"></i>
+</div>
+<h3 class="text-lg font-bold mb-2">Rozetler Kazan</h3>
+<p class="text-sm text-gray-600">Başarılarınızla rozet koleksiyonunuzu genişletin</p>
+</div>
+<!-- Step 5 -->
+<div class="timeline-step text-center px-4">
+<div class="flex items-center justify-center w-12 h-12 bg-primary text-white rounded-full mb-4 mx-auto font-bold">5</div>
+<div class="flex items-center justify-center w-16 h-16 bg-white shadow-md rounded-full mb-4 mx-auto">
+<i class="ri-shopping-bag-line ri-xl text-primary"></i>
+</div>
+<h3 class="text-lg font-bold mb-2">Ödüllerini Al</h3>
+<p class="text-sm text-gray-600">Kazandığınız puanlarla marketten ödüller alın</p>
+</div>
+</div>
+</div>
+<!-- Mobile Timeline -->
+<div class="md:hidden space-y-8">
+<!-- Step 1 -->
+<div class="flex items-start">
+<div class="flex-shrink-0 mr-4">
+<div class="flex items-center justify-center w-10 h-10 bg-primary text-white rounded-full font-bold">1</div>
+</div>
+<div>
+<div class="flex items-center mb-2">
+<div class="flex items-center justify-center w-8 h-8 bg-white shadow-md rounded-full mr-3">
+<i class="ri-user-add-line text-primary"></i>
+</div>
+<h3 class="text-lg font-bold">Üye Ol</h3>
+</div>
+<p class="text-gray-600">Hızlı kayıt süreci ile hesabınızı oluşturun</p>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="flex items-start">
+<div class="flex-shrink-0 mr-4">
+<div class="flex items-center justify-center w-10 h-10 bg-primary text-white rounded-full font-bold">2</div>
+</div>
+<div>
+<div class="flex items-center mb-2">
+<div class="flex items-center justify-center w-8 h-8 bg-white shadow-md rounded-full mr-3">
+<i class="ri-list-check text-primary"></i>
+</div>
+<h3 class="text-lg font-bold">Görevlerini Belirle</h3>
+</div>
+<p class="text-gray-600">Kişisel hedeflerinize göre görevler oluşturun</p>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="flex items-start">
+<div class="flex-shrink-0 mr-4">
+<div class="flex items-center justify-center w-10 h-10 bg-primary text-white rounded-full font-bold">3</div>
+</div>
+<div>
+<div class="flex items-center mb-2">
+<div class="flex items-center justify-center w-8 h-8 bg-white shadow-md rounded-full mr-3">
+<i class="ri-calendar-check-line text-primary"></i>
+</div>
+<h3 class="text-lg font-bold">Günlük Takip Et</h3>
+</div>
+<p class="text-gray-600">Görevlerinizi düzenli olarak tamamlayın</p>
+</div>
+</div>
+<!-- Step 4 -->
+<div class="flex items-start">
+<div class="flex-shrink-0 mr-4">
+<div class="flex items-center justify-center w-10 h-10 bg-primary text-white rounded-full font-bold">4</div>
+</div>
+<div>
+<div class="flex items-center mb-2">
+<div class="flex items-center justify-center w-8 h-8 bg-white shadow-md rounded-full mr-3">
+<i class="ri-medal-line text-primary"></i>
+</div>
+<h3 class="text-lg font-bold">Rozetler Kazan</h3>
+</div>
+<p class="text-gray-600">Başarılarınızla rozet koleksiyonunuzu genişletin</p>
+</div>
+</div>
+<!-- Step 5 -->
+<div class="flex items-start">
+<div class="flex-shrink-0 mr-4">
+<div class="flex items-center justify-center w-10 h-10 bg-primary text-white rounded-full font-bold">5</div>
+</div>
+<div>
+<div class="flex items-center mb-2">
+<div class="flex items-center justify-center w-8 h-8 bg-white shadow-md rounded-full mr-3">
+<i class="ri-shopping-bag-line text-primary"></i>
+</div>
+<h3 class="text-lg font-bold">Ödüllerini Al</h3>
+</div>
+<p class="text-gray-600">Kazandığınız puanlarla marketten ödüller alın</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Statistics Section -->
+<section id="stats" class="py-20 gradient-bg text-white">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold mb-4">İstatistikler</h2>
+<p class="text-lg opacity-90 max-w-3xl mx-auto">CepteMotivasyon kullanıcılarımızın başarıları</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Stat 1 -->
+<div class="bg-white/10 backdrop-blur-sm p-8 rounded-lg">
+<div class="flex items-center justify-center w-16 h-16 bg-white/20 rounded-full mb-6 mx-auto">
+<i class="ri-user-heart-line ri-xl"></i>
+</div>
+<div class="text-center">
+<h3 class="text-4xl font-bold mb-2 counter">250.000+</h3>
+<p class="text-lg opacity-90">Aktif Kullanıcı</p>
+</div>
+</div>
+<!-- Stat 2 -->
+<div class="bg-white/10 backdrop-blur-sm p-8 rounded-lg">
+<div class="flex items-center justify-center w-16 h-16 bg-white/20 rounded-full mb-6 mx-auto">
+<i class="ri-checkbox-circle-line ri-xl"></i>
+</div>
+<div class="text-center">
+<h3 class="text-4xl font-bold mb-2 counter">5.2M+</h3>
+<p class="text-lg opacity-90">Tamamlanan Görev</p>
+</div>
+</div>
+<!-- Stat 3 -->
+<div class="bg-white/10 backdrop-blur-sm p-8 rounded-lg">
+<div class="flex items-center justify-center w-16 h-16 bg-white/20 rounded-full mb-6 mx-auto">
+<i class="ri-award-line ri-xl"></i>
+</div>
+<div class="text-center">
+<h3 class="text-4xl font-bold mb-2 counter">1.8M+</h3>
+<p class="text-lg opacity-90">Dağıtılan Rozet</p>
+</div>
+</div>
+<!-- Stat 4 -->
+<div class="bg-white/10 backdrop-blur-sm p-8 rounded-lg">
+<div class="flex items-center justify-center w-16 h-16 bg-white/20 rounded-full mb-6 mx-auto">
+<i class="ri-star-line ri-xl"></i>
+</div>
+<div class="text-center">
+<h3 class="text-4xl font-bold mb-2 counter">4.8/5</h3>
+<p class="text-lg opacity-90">Kullanıcı Memnuniyeti</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- App Features List -->
+<section class="py-20 bg-gray-50">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold mb-4">Tüm Özellikler</h2>
+<p class="text-lg text-gray-600 max-w-3xl mx-auto">CepteMotivasyon uygulamasının sunduğu tüm özellikler</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Feature 1 -->
+<div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow flex items-start">
+<div class="flex items-center justify-center w-10 h-10 bg-primary/10 text-primary rounded-full mr-4 flex-shrink-0">
+<i class="ri-moon-line"></i>
+</div>
+<div>
+<h3 class="font-bold mb-2">Karanlık/Aydınlık Tema</h3>
+<p class="text-sm text-gray-600">Gözlerinizi yormayan tema seçenekleri</p>
+</div>
+</div>
+<!-- Feature 2 -->
+<div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow flex items-start">
+<div class="flex items-center justify-center w-10 h-10 bg-primary/10 text-primary rounded-full mr-4 flex-shrink-0">
+<i class="ri-wifi-off-line"></i>
+</div>
+<div>
+<h3 class="font-bold mb-2">Çevrimdışı Kullanım</h3>
+<p class="text-sm text-gray-600">İnternet olmadan da kullanabilirsiniz</p>
+</div>
+</div>
+<!-- Feature 3 -->
+<div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow flex items-start">
+<div class="flex items-center justify-center w-10 h-10 bg-primary/10 text-primary rounded-full mr-4 flex-shrink-0">
+<i class="ri-notification-3-line"></i>
+</div>
+<div>
+<h3 class="font-bold mb-2">Bildirim Sistemi</h3>
+<p class="text-sm text-gray-600">Özelleştirilebilir hatırlatıcılar</p>
+</div>
+</div>
+<!-- Feature 4 -->
+<div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow flex items-start">
+<div class="flex items-center justify-center w-10 h-10 bg-primary/10 text-primary rounded-full mr-4 flex-shrink-0">
+<i class="ri-tablet-line"></i>
+</div>
+<div>
+<h3 class="font-bold mb-2">Tablet Desteği</h3>
+<p class="text-sm text-gray-600">Büyük ekranlarda optimize edilmiş görünüm</p>
+</div>
+</div>
+<!-- Feature 5 -->
+<div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow flex items-start">
+<div class="flex items-center justify-center w-10 h-10 bg-primary/10 text-primary rounded-full mr-4 flex-shrink-0">
+<i class="ri-translate-2"></i>
+</div>
+<div>
+<h3 class="font-bold mb-2">Türkçe Dil Desteği</h3>
+<p class="text-sm text-gray-600">Tamamen Türkçe arayüz</p>
+</div>
+</div>
+<!-- Feature 6 -->
+<div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow flex items-start">
+<div class="flex items-center justify-center w-10 h-10 bg-primary/10 text-primary rounded-full mr-4 flex-shrink-0">
+<i class="ri-question-answer-line"></i>
+</div>
+<div>
+<h3 class="font-bold mb-2">SSS Bölümü</h3>
+<p class="text-sm text-gray-600">Sık sorulan sorular ve cevapları</p>
+</div>
+</div>
+<!-- Feature 7 -->
+<div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow flex items-start">
+<div class="flex items-center justify-center w-10 h-10 bg-primary/10 text-primary rounded-full mr-4 flex-shrink-0">
+<i class="ri-user-settings-line"></i>
+</div>
+<div>
+<h3 class="font-bold mb-2">Kullanıcı Profili</h3>
+<p class="text-sm text-gray-600">Kişiselleştirilmiş kullanıcı deneyimi</p>
+</div>
+</div>
+<!-- Feature 8 -->
+<div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow flex items-start">
+<div class="flex items-center justify-center w-10 h-10 bg-primary/10 text-primary rounded-full mr-4 flex-shrink-0">
+<i class="ri-line-chart-line"></i>
+</div>
+<div>
+<h3 class="font-bold mb-2">İstatistik Grafikleri</h3>
+<p class="text-sm text-gray-600">Görsel ilerleme takibi</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- App Preview -->
+<section class="py-20">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold mb-4">Uygulama Önizlemesi</h2>
+<p class="text-lg text-gray-600 max-w-3xl mx-auto">CepteMotivasyon'un kullanımı kolay ve şık arayüzü</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+<div>
+<h3 class="text-2xl font-bold mb-6">Görevlerinizi Kolayca Yönetin</h3>
+<p class="text-gray-600 mb-6">CepteMotivasyon, günlük görevlerinizi planlamanızı ve takip etmenizi sağlayan kullanıcı dostu bir arayüz sunar. Görevlerinizi kategorilere ayırabilir, öncelik belirleyebilir ve tamamladıkça ilerleyişinizi görebilirsiniz.</p>
+<div class="space-y-4 mb-8">
+<div class="flex items-center">
+<input type="checkbox" class="custom-checkbox mr-3" checked>
+<span class="text-gray-700">Sabah 07:00'de yoga yapma</span>
+</div>
+<div class="flex items-center">
+<input type="checkbox" class="custom-checkbox mr-3" checked>
+<span class="text-gray-700">2 litre su içme</span>
+</div>
+<div class="flex items-center">
+<input type="checkbox" class="custom-checkbox mr-3">
+<span class="text-gray-700">Akşam 30 dakika kitap okuma</span>
+</div>
+<div class="flex items-center">
+<input type="checkbox" class="custom-checkbox mr-3">
+<span class="text-gray-700">Haftalık planlama yapma</span>
+</div>
+</div>
+<div class="flex flex-wrap gap-4">
+<div class="flex items-center space-x-2">
+<div class="flex items-center justify-center w-6 h-6 bg-primary/10 text-primary rounded-full">
+<i class="ri-calendar-line"></i>
+</div>
+<span class="text-sm text-gray-600">Günlük</span>
+</div>
+<div class="flex items-center space-x-2">
+<div class="flex items-center justify-center w-6 h-6 bg-primary/10 text-primary rounded-full">
+<i class="ri-time-line"></i>
+</div>
+<span class="text-sm text-gray-600">Hatırlatıcılar</span>
+</div>
+<div class="flex items-center space-x-2">
+<div class="flex items-center justify-center w-6 h-6 bg-primary/10 text-primary rounded-full">
+<i class="ri-repeat-line"></i>
+</div>
+<span class="text-sm text-gray-600">Tekrarlanan</span>
+</div>
+</div>
+</div>
+<div class="flex justify-center">
+<div class="relative w-72 h-[600px] bg-gray-900 rounded-[36px] p-3 shadow-xl">
+<div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-40 h-6 bg-gray-900 rounded-b-2xl"></div>
+<div class="w-full h-full bg-white rounded-[28px] overflow-hidden">
+<img src="https://static.readdy.ai/image/3a11723c84041bc0081165961689206d/b1f1e81d25dc4d12c8ea944fecef4c54.png" alt="CepteMotivasyon Uygulaması" class="w-full h-full object-cover object-top">
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials -->
+<section class="py-20 bg-gray-50">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold mb-4">Kullanıcı Yorumları</h2>
+<p class="text-lg text-gray-600 max-w-3xl mx-auto">CepteMotivasyon kullanıcılarımızın deneyimleri</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Testimonial 1 -->
+<div class="bg-white p-8 rounded-lg shadow-md">
+<div class="flex items-center mb-6">
+<div class="text-primary">
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+</div>
+<span class="ml-2 text-gray-600">5.0</span>
+</div>
+<p class="text-gray-700 mb-6">"Bu uygulama hayatımı değiştirdi! Artık günlük görevlerimi takip etmek çok kolay ve rozetler kazanmak beni motive ediyor. Özellikle sabah bildirimleri günüme enerjik başlamamı sağlıyor."</p>
+<div class="flex items-center">
+<div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center text-primary font-bold mr-4">
+EA
+</div>
+<div>
+<h4 class="font-bold">Elif Aydın</h4>
+<p class="text-sm text-gray-600">İstanbul</p>
+</div>
+</div>
+</div>
+<!-- Testimonial 2 -->
+<div class="bg-white p-8 rounded-lg shadow-md">
+<div class="flex items-center mb-6">
+<div class="text-primary">
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+</div>
+<span class="ml-2 text-gray-600">5.0</span>
+</div>
+<p class="text-gray-700 mb-6">"Uzun zamandır düzenli spor yapamıyordum. CepteMotivasyon sayesinde 3 aydır hiç aksatmadan devam ediyorum. Streak sistemini kaybetmemek için her gün mutlaka yapıyorum. Harika bir uygulama!"</p>
+<div class="flex items-center">
+<div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center text-primary font-bold mr-4">
+MY
+</div>
+<div>
+<h4 class="font-bold">Mehmet Yılmaz</h4>
+<p class="text-sm text-gray-600">Ankara</p>
+</div>
+</div>
+</div>
+<!-- Testimonial 3 -->
+<div class="bg-white p-8 rounded-lg shadow-md">
+<div class="flex items-center mb-6">
+<div class="text-primary">
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-half-fill"></i>
+</div>
+<span class="ml-2 text-gray-600">4.5</span>
+</div>
+<p class="text-gray-700 mb-6">"Öğrenciyim ve derslerimi planlamakta zorlanıyordum. CepteMotivasyon ile artık tüm çalışmalarımı düzenli takip edebiliyorum. Rozet kazandıkça daha çok motive oluyorum. Kesinlikle tavsiye ederim!"</p>
+<div class="flex items-center">
+<div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center text-primary font-bold mr-4">
+ZK
+</div>
+<div>
+<h4 class="font-bold">Zeynep Kaya</h4>
+<p class="text-sm text-gray-600">İzmir</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ Section -->
+<section id="faq" class="py-20">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold mb-4">Sık Sorulan Sorular</h2>
+<p class="text-lg text-gray-600 max-w-3xl mx-auto">CepteMotivasyon hakkında merak edilenler</p>
+</div>
+<div class="max-w-3xl mx-auto">
+<div class="space-y-6">
+<!-- FAQ Item 1 -->
+<div class="border border-gray-200 rounded-lg overflow-hidden">
+<button class="faq-toggle w-full flex justify-between items-center p-6 text-left bg-white hover:bg-gray-50 transition-colors">
+<span class="font-bold">CepteMotivasyon uygulaması ücretli mi?</span>
+<div class="flex items-center justify-center w-6 h-6 text-primary">
+<i class="ri-arrow-down-s-line faq-icon"></i>
+</div>
+</button>
+<div class="faq-content hidden p-6 pt-0 bg-white">
+<p class="text-gray-700">CepteMotivasyon uygulaması temel özellikleriyle ücretsiz olarak kullanılabilir. Premium özellikler için aylık veya yıllık abonelik seçenekleri mevcuttur. Premium üyelik ile daha fazla özelleştirme seçeneği, gelişmiş istatistikler ve reklamsız deneyim sunulmaktadır.</p>
+</div>
+</div>
+<!-- FAQ Item 2 -->
+<div class="border border-gray-200 rounded-lg overflow-hidden">
+<button class="faq-toggle w-full flex justify-between items-center p-6 text-left bg-white hover:bg-gray-50 transition-colors">
+<span class="font-bold">Verilerim güvende mi?</span>
+<div class="flex items-center justify-center w-6 h-6 text-primary">
+<i class="ri-arrow-down-s-line faq-icon"></i>
+</div>
+</button>
+<div class="faq-content hidden p-6 pt-0 bg-white">
+<p class="text-gray-700">Evet, kullanıcı verileriniz güvende. Uygulamamız en güncel güvenlik standartlarına uygun olarak geliştirilmiştir. Verileriniz şifrelenerek saklanır ve üçüncü taraflarla paylaşılmaz. Ayrıca, istediğiniz zaman verilerinizi dışa aktarabilir veya hesabınızı silebilirsiniz.</p>
+</div>
+</div>
+<!-- FAQ Item 3 -->
+<div class="border border-gray-200 rounded-lg overflow-hidden">
+<button class="faq-toggle w-full flex justify-between items-center p-6 text-left bg-white hover:bg-gray-50 transition-colors">
+<span class="font-bold">Rozetleri nasıl kazanabilirim?</span>
+<div class="flex items-center justify-center w-6 h-6 text-primary">
+<i class="ri-arrow-down-s-line faq-icon"></i>
+</div>
+</button>
+<div class="faq-content hidden p-6 pt-0 bg-white">
+<p class="text-gray-700">Rozetler, belirli görevleri tamamladığınızda veya hedeflere ulaştığınızda otomatik olarak kazanılır. Örneğin, 7 gün üst üste görevlerinizi tamamladığınızda "Haftalık Streak" rozeti, 30 gün için "Aylık Kararlılık" rozeti kazanırsınız. Ayrıca özel kategorilerdeki görevler için de farklı rozetler bulunmaktadır.</p>
+</div>
+</div>
+<!-- FAQ Item 4 -->
+<div class="border border-gray-200 rounded-lg overflow-hidden">
+<button class="faq-toggle w-full flex justify-between items-center p-6 text-left bg-white hover:bg-gray-50 transition-colors">
+<span class="font-bold">İnternet olmadan kullanabilir miyim?</span>
+<div class="flex items-center justify-center w-6 h-6 text-primary">
+<i class="ri-arrow-down-s-line faq-icon"></i>
+</div>
+</button>
+<div class="faq-content hidden p-6 pt-0 bg-white">
+<p class="text-gray-700">Evet, CepteMotivasyon çevrimdışı olarak da kullanılabilir. İnternet bağlantınız olmadığında görevlerinizi görüntüleyebilir, düzenleyebilir ve tamamlayabilirsiniz. İnternet bağlantısı sağlandığında verileriniz otomatik olarak senkronize edilir.</p>
+</div>
+</div>
+<!-- FAQ Item 5 -->
+<div class="border border-gray-200 rounded-lg overflow-hidden">
+<button class="faq-toggle w-full flex justify-between items-center p-6 text-left bg-white hover:bg-gray-50 transition-colors">
+<span class="font-bold">Marketten kazandığım puanlarla neler alabilirim?</span>
+<div class="flex items-center justify-center w-6 h-6 text-primary">
+<i class="ri-arrow-down-s-line faq-icon"></i>
+</div>
+</button>
+<div class="faq-content hidden p-6 pt-0 bg-white">
+<p class="text-gray-700">Market puanlarıyla özel temalar, ek özelleştirme seçenekleri, premium içerikler ve çeşitli sanal ödüller alabilirsiniz. Ayrıca belirli miktarda puan biriktirdiğinizde anlaşmalı markalardan indirim kuponları ve hediye çekleri de kazanabilirsiniz.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-20 gradient-bg text-white">
+<div class="container mx-auto px-4 text-center">
+<h2 class="text-3xl md:text-4xl font-bold mb-6">Motivasyonunuzu Artırmaya Hazır mısınız?</h2>
+<p class="text-xl mb-10 max-w-3xl mx-auto opacity-90">Hemen şimdi CepteMotivasyon'u indirin ve hedeflerinize daha kolay ulaşın.</p>
+<div class="flex flex-wrap justify-center gap-6">
+<button class="flex items-center bg-white text-gray-800 px-8 py-4 !rounded-button font-medium shadow-lg hover:bg-opacity-90 transition whitespace-nowrap">
+<div class="flex items-center justify-center w-6 h-6 mr-3">
+<i class="ri-apple-fill ri-lg"></i>
+</div>
+App Store'dan İndir
+</button>
+<button class="flex items-center bg-white text-gray-800 px-8 py-4 !rounded-button font-medium shadow-lg hover:bg-opacity-90 transition whitespace-nowrap">
+<div class="flex items-center justify-center w-6 h-6 mr-3">
+<i class="ri-google-play-fill ri-lg"></i>
+</div>
+Google Play'den İndir
+</button>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-gray-800 text-white pt-16 pb-8">
+<div class="container mx-auto px-4">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+<!-- Column 1 -->
+<div>
+<h3 class="text-xl font-bold mb-6">CepteMotivasyon</h3>
+<p class="text-gray-400 mb-6">Günlük görevlerinizi takip edin, başarı rozetleri kazanın, motivasyonunuzu artırın.</p>
+<div class="flex space-x-4">
+<a href="#" class="text-gray-400 hover:text-white transition">
+<div class="flex items-center justify-center w-10 h-10 bg-gray-700 rounded-full">
+<i class="ri-facebook-fill"></i>
+</div>
+</a>
+<a href="#" class="text-gray-400 hover:text-white transition">
+<div class="flex items-center justify-center w-10 h-10 bg-gray-700 rounded-full">
+<i class="ri-twitter-x-fill"></i>
+</div>
+</a>
+<a href="#" class="text-gray-400 hover:text-white transition">
+<div class="flex items-center justify-center w-10 h-10 bg-gray-700 rounded-full">
+<i class="ri-instagram-fill"></i>
+</div>
+</a>
+<a href="#" class="text-gray-400 hover:text-white transition">
+<div class="flex items-center justify-center w-10 h-10 bg-gray-700 rounded-full">
+<i class="ri-linkedin-fill"></i>
+</div>
+</a>
+</div>
+</div>
+<!-- Column 2 -->
+<div>
+<h3 class="text-xl font-bold mb-6">Hızlı Bağlantılar</h3>
+<ul class="space-y-3">
+<li><a href="#features" class="text-gray-400 hover:text-white transition">Özellikler</a></li>
+<li><a href="#how-it-works" class="text-gray-400 hover:text-white transition">Nasıl Çalışır</a></li>
+<li><a href="#stats" class="text-gray-400 hover:text-white transition">İstatistikler</a></li>
+<li><a href="#faq" class="text-gray-400 hover:text-white transition">SSS</a></li>
+</ul>
+</div>
+<!-- Column 3 -->
+<div>
+<h3 class="text-xl font-bold mb-6">Yasal</h3>
+<ul class="space-y-3">
+<li><a href="politika.html" class="text-gray-400 hover:text-white transition">Gizlilik Politikası</a></li>
+
+</ul>
+</div>
+<!-- Column 4 -->
+<div>
+<h3 class="text-xl font-bold mb-6">İletişim</h3>
+<ul class="space-y-3">
+<li class="flex items-start">
+<div class="flex items-center justify-center w-5 h-5 mt-0.5 mr-3 text-gray-400">
+<i class="ri-mail-line"></i>
+</div>
+<span class="text-gray-400">info@enesozbuganli.com</span>
+</li>
+<li class="flex items-start">
+<div class="flex items-center justify-center w-5 h-5 mt-0.5 mr-3 text-gray-400">
+<i class="ri-phone-line"></i>
+</div>
+<span class="text-gray-400">+90 *** *** ** **</span>
+</li>
+<li class="flex items-start">
+<div class="flex items-center justify-center w-5 h-5 mt-0.5 mr-3 text-gray-400">
+<i class="ri-map-pin-line"></i>
+</div>
+<span class="text-gray-400">İstanbul, Türkiye</span>
+</li>
+</ul>
+<div class="mt-6">
+<h4 class="font-bold mb-3">Bültenimize Abone Olun</h4>
+<div class="flex">
+<input type="email" placeholder="E-posta adresiniz" class="px-4 py-2 w-full rounded-l-button border-none focus:outline-none text-gray-800">
+<button class="bg-primary text-white px-4 py-2 rounded-r-button whitespace-nowrap">Abone Ol</button>
+</div>
+</div>
+</div>
+</div>
+<div class="border-t border-gray-700 pt-8">
+<div class="flex flex-col md:flex-row justify-between items-center">
+<p class="text-gray-400 mb-4 md:mb-0">&copy; 2025 CepteMotivasyon. Tüm hakları saklıdır.</p>
+<div class="flex items-center space-x-4">
+
+</div>
+</div>
+</div>
+</div>
+</footer>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+// FAQ Toggle
+const faqToggles = document.querySelectorAll('.faq-toggle');
+faqToggles.forEach(toggle => {
+toggle.addEventListener('click', function() {
+const content = this.nextElementSibling;
+const icon = this.querySelector('.faq-icon');
+if (content.classList.contains('hidden')) {
+content.classList.remove('hidden');
+icon.classList.remove('ri-arrow-down-s-line');
+icon.classList.add('ri-arrow-up-s-line');
+} else {
+content.classList.add('hidden');
+icon.classList.remove('ri-arrow-up-s-line');
+icon.classList.add('ri-arrow-down-s-line');
+}
+});
+});
+});
+</script>
+</body>
+</html>
